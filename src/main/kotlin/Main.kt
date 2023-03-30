@@ -5,21 +5,30 @@ fun main() {
 
     val heights = listOf(10.2, 7.6, 5.3, 4.9, 16.0)
     val (average, total) = height(heights)
-    println("Average height: $average meters")
-    println("Total height: $total meters")
+    println(" average height= $average meters")
+    println("Total height= $total meters")
 
     people()
 
-    val averageMileage = totalMileage / cars.size
-    println("The average mileage of all cars is: $averageMileage")
-    averageMileage
+    val gety = listOf(
+        Car("KZZ286F", 239),
+        Car("KBC450D", 890),
+        Car("KDD678G", 1400),
+    )
+    val averages = returnAverage(gety)
+    println("the average mileage = $averages")
 
-
-
-
-
+    val peps=peopleAdd()
+    println(peps)
 
 }
+
+
+
+
+
+
+
 
 
 //1 Given a list of 10 strings, write a function that returns a list of the strings
@@ -62,24 +71,26 @@ fun people(){
 //4 Given a list similar to the one above, write a function in which you will
 //create 2 more people objects and add them to the list at one go.
 
+fun peopleAdd():List<Person>{
+    val per4=Person("Hope",34,34.9,45.9)
+    val per5=Person("Mercy",3,84.9,5.9)
+    return mutableListOf(per4,per5)
+
+}
+
 
 // 5 Write a function that takes in a list of Car objects each with a
 //registration and mileage attribute and returns the average mileage of
-//all the vehicles in the list.
-data class Car (var registration:String,var mileage:Int)
+//all the vehicles in the list.data class Car(val registration: String, val mileage: Double)
 
-//fun carList(cars: List<Car>): Double {
-//    var totalMileage = 0.0
-//    for (car in cars) {
-//        totalMileage += car.mileage
-//    }
-//    return totalMileage / cars.size
+data class Car(var registration:String,var mileage:Int)
 
-fun averageMileage(cars: List<Car>) {
-    var totalMileage = 0.0
-    for (car in cars) {
-        totalMileage += car.mileage
+    fun returnAverage (averageMileage:List<Car>): Double{
+        var gety = 0.0
+        for (car in averageMileage){
+            gety += car.mileage
+        }
+        return gety/ averageMileage.size
     }
-    val averageMileage = totalMileage / cars.size
-    println("The average mileage of all cars is: $averageMileage")
-}
+
+
